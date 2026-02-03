@@ -1,1 +1,23 @@
 <p>home-page works!</p>
+<!-- String interpolation example: -->
+<h2>{{ title }}</h2>
+
+<h3>{{ testfn() }}</h3>
+
+<!-- Property binding example: -->
+<button [disabled]=invalidfn()>Click Me</button>
+
+
+name : <input type="text" (keyup)="writeName($event)">
+
+<p>Your name is: {{ name }}</p>
+
+<!-- Two-way data binding example: -->
+city: <input type="text" [(ngModel)]="city">
+
+<p>Your city is: {{ city }}</p>
+
+<button (click)="alertCity()">Click Alert</button>
+
+
+
