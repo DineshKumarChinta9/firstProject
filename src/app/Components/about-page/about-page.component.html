@@ -1,1 +1,19 @@
 <p>about-page works!</p>
+
+<div>{{ myLastFullName }}</div>
+
+<div>
+  <h3>Array from Parent Component:</h3>
+  <ul>
+    <li *ngFor="let item of parentArrays">{{ item }}</li>
+  </ul>
+</div>
+
+<div>
+    <h3>Object from Parent Component:</h3>
+    <ul>
+        <li *ngFor="let obj of parentsObj">
+        First Name: {{ obj.firstName }}, Last Name: {{ obj.lastName }}, Age: {{ obj.age }}
+        </li>
+    </ul>
+</div>
