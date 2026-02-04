@@ -19,5 +19,20 @@ city: <input type="text" [(ngModel)]="city">
 
 <button (click)="alertCity()">Click Alert</button>
 
+<!-- Pipe example: -->
+<p>todays data {{ today|date:format}}</p>
+<button (click)="toggelFormat()">Toggle Format</button>
+<p>My full name is: {{ myFullName|slice:start:end}}</p>
 
+<!-- Chaining Pipe example -->
 
+<p>My full name in uppercase is: {{ myFullName | slice:start:end | uppercase}}</p>
+
+<!-- Custom Pipe example -->
+
+<p>Custom Pipe example: {{ myFullName | test }}</p>
+<!-- Passing data to child component example -->
+ <!--in [] it is from child component on the right hand side of assignment operator its from parent.-->
+<app-about-page [myLastFullName]="myFullName" [parentArrays]="parentArrays" [parentsObj]="parentsObj" (myOutputEvent)="childDataFromAboutPage=$event"></app-about-page>
+
+<p>Data received from about page component: {{ childDataFromAboutPage }}</p>
