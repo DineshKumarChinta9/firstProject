@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AboutPageComponent } from '../about-page/about-page.component';
+import { TestService } from 'src/app/Services/test.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  @ViewChild('inputBox') inputB!:ElementRef;
+  @ViewChild(AboutPageComponent,) aboutPageComponent!: AboutPageComponent;
 title = 'Welcome to the Home Page';
 name:string = '';
 city:string = 'New York';
@@ -24,6 +28,10 @@ parentsObj:object[] = [{
 }];
 
 childDataFromAboutPage: string = '';
+
+receiveServiceMobilesData: any[] = [];
+constructor(private testService: TestService){}
+
 
 testfn(){
   return "This is a test function";
@@ -46,5 +54,16 @@ toggelFormat(){
 this.format = this.format === 'shortDate' ? 'fullDate' : 'shortDate';
 }
 
+focusInput(){
+  console.log(this.inputB.nativeElement.value);
+}
+
+changeMessage(){
+  this.aboutPageComponent.childMessage('Message changed from Home Page Component'); 
+}
+
+getMobilesFromService(){
+  this.receiveServiceMobilesData = this.testService.getMobiles(); 
+}
 
 }

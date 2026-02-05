@@ -17,3 +17,29 @@
         </li>
     </ul>
 </div>
+
+
+<div>
+  <h3>Message from Child Component and it will change from parent Component:</h3>
+  <p>{{ message }}</p>
+</div>
+
+<br>
+
+<button (click)="getMobilesFromService()">Get Mobiles from Service</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let mobile of receiveServiceMobilesData">
+    <td>{{ mobile.name }}</td>
+    <td>{{ mobile.color }}</td>
+    <td>{{ mobile.price }}</td>
+  </tr>
+</table>
+
+
+<button (click)="navigateToSettings()">Go to Settings</button>
