@@ -7,18 +7,25 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { AboutPageComponent } from './Components/about-page/about-page.component';
 import { TestPipe } from './Pipes/test.pipe';
+import { HeaderComponent } from './Components/header/header.component';
+import { SettingsComponent } from './Components/settings/settings.component';
+// import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     AboutPageComponent,
-    TestPipe
+    TestPipe,
+    HeaderComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    // RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -36,3 +36,22 @@ city: <input type="text" [(ngModel)]="city">
 <app-about-page [myLastFullName]="myFullName" [parentArrays]="parentArrays" [parentsObj]="parentsObj" (myOutputEvent)="childDataFromAboutPage=$event"></app-about-page>
 
 <p>Data received from about page component: {{ childDataFromAboutPage }}</p>
+
+
+<!--Viewchild Decorator-->
+
+<input type="text" #inputBox placeholder="Enter your name">
+
+<button (click)="focusInput()">Focus Input</button>
+<br>
+<button (click)="changeMessage()">change message</button>
+
+<br><br><br>
+
+<button (click)="getMobilesFromService()">Get Mobiles from Service</button>
+
+<ul>
+  <li *ngFor="let mobile of receiveServiceMobilesData">
+    {{ mobile.name }} - {{ mobile.color }} - {{ mobile.price }}
+  </li>
+
