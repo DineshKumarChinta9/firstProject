@@ -1,3 +1,6 @@
+<input type=number [(ngModel)]="amount" placeholder="Enter amount"><br><br>
+<button (click)="load()">Load Users</button>
+
 <p>home-page works!</p>
 <!-- String interpolation example: -->
 <h2>{{ title }}</h2>
@@ -7,7 +10,7 @@
 <!-- Property binding example: -->
 <button [disabled]=invalidfn()>Click Me</button>
 
-
+<!--Event binding example:-->
 name : <input type="text" (keyup)="writeName($event)">
 
 <p>Your name is: {{ name }}</p>
@@ -32,8 +35,9 @@ city: <input type="text" [(ngModel)]="city">
 
 <p>Custom Pipe example: {{ myFullName | test }}</p>
 <!-- Passing data to child component example -->
- <!--in [] it is from child component on the right hand side of assignment operator its from parent.-->
-<app-about-page [myLastFullName]="myFullName" [parentArrays]="parentArrays" [parentsObj]="parentsObj" (myOutputEvent)="childDataFromAboutPage=$event"></app-about-page>
+<!--in [] it is from child component and on the right hand side of assignment operator its from parent.-->
+<!-- <app-about-page [myLastFullName]="myFullName" [parentArrays]="parentArrays" [parentsObj]="parentsObj"
+  (myOutputEvent)="childDataFromAboutPage=$event"></app-about-page> -->
 
 <p>Data received from about page component: {{ childDataFromAboutPage }}</p>
 
@@ -54,4 +58,6 @@ city: <input type="text" [(ngModel)]="city">
   <li *ngFor="let mobile of receiveServiceMobilesData">
     {{ mobile.name }} - {{ mobile.color }} - {{ mobile.price }}
   </li>
+</ul>
+
 

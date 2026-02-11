@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ActualpaymentService } from 'src/app/Services/actualpayment.service';
 import { TestService } from 'src/app/Services/test.service';
 
 @Component({
@@ -16,8 +17,10 @@ export class AboutPageComponent {
 
   message: string = 'This is about page component';
   receiveServiceMobilesData: any[] = [];
-  constructor(private testService: TestService, private router: Router) { }
+  constructor(private testService: TestService, private router: Router, private route: ActivatedRoute, private actualPaymentService: ActualpaymentService) { }
   ngOnInit() {
+    console.log(this.actualPaymentService.getPayment(10));
+    console.log(this.route.snapshot.title);
     this.sendDataToParent();
   }
   sendDataToParent() {
