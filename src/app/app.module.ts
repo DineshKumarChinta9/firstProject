@@ -11,7 +11,7 @@ import { SettingsComponent } from './Components/settings/settings.component';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app-routing.module';
 import { DITestingService } from './Services/d-itesting.service';
-import { API_URL } from './app.token';
+import { API_URL, APP_CONFIG } from './app.token';
 
 
 @NgModule({
@@ -33,7 +33,9 @@ import { API_URL } from './app.token';
     FormsModule
   ],
   // The providers array is where you can specify services that should be available for dependency injection throughout the module.
-  providers: [ provideRouter(routes, withComponentInputBinding()), { provide: API_URL, useValue: 'https://api.myapp.com' }, 
+  providers: [ provideRouter(routes, withComponentInputBinding()),
+     { provide: API_URL, useValue: 'https://api.myapp.com' }, 
+     { provide: APP_CONFIG, useValue: { apiUrl: 'https://api.myapp.com', timeout: 5000 } }
    ],
   // The bootstrap array specifies the root component that Angular should use to launch the application.
   bootstrap: [AppComponent]
